@@ -1,4 +1,5 @@
 const contacts = require('./contacts');
+const { program } = require('commander');
 
 const invokeAction = async({
      action,
@@ -30,6 +31,15 @@ const invokeAction = async({
     }
 };
 
-invokeAction({
-    action: 'removeContact', id: "yPcGb5LiFW9UUi3L6Ux8S",
-})
+program
+.option('-a, --action <type>')
+.option('-i, --id <type>')
+.option('-n --name <type>')
+.option('-em --email <type>')
+.option('-p --phone <type>')
+
+program.parse(process.argv);
+
+const options = program.opts();
+
+invokeAction(options);
