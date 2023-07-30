@@ -1,6 +1,5 @@
 const contacts = require('./contacts');
 
-
 const invokeAction = async({
      action,
      id,
