@@ -21,10 +21,16 @@ const invokeAction = async({
             const newContact = await contacts.addContact({ name, email, phone });
             console.log(newContact);
             break;
-
+            case 'removeContact':
+        const contact = await contacts.removeContact(id);
+            console.log(contact);
+            break;
+        default:
+            console.log("Unknown action");    
+            break;
     }
 };
 
 invokeAction({
-    action: 'addContact', name: 'Ruta', email: 'rutaMe@gmail.com', phone: '0663243123',
+    action: 'removeContact', id: "yPcGb5LiFW9UUi3L6Ux8S",
 })
