@@ -4,12 +4,14 @@ const contactsPath = path.resolve(__dirname, './db/contacts.json');
 
 
  const listContacts =  async () => {
-    const data = await fs.readFile(contactsPath, 'utf-8');
+    const data = await fs.readFile(contactsPath);
     return JSON.parse(data)
 };
 
-async function getContactById(contactId) {
-   const contactById =  fs.readFile(contactsPath) 
+const  getContactById = async (id) => {
+   const contacts = await listContacts();
+   const result = contacts.find((item) => item.id === id);
+   return result ;
 };
 
 async function removeContact(contactId) {
